@@ -14,10 +14,17 @@ public class Main {
             texts[i] = generateText("abc", 3 + random.nextInt(3));
         }
 
-        Thread thread1 = new Thread(() -> {
+         Thread thread1 = new Thread(() -> {
             for (String text : texts) {
                 if (isPalindrome(text)) {
-                    counter3.incrementAndGet();
+                    int length = text.length();
+                    if (length == 3) {
+                        counter3.incrementAndGet();
+                    } else if (length == 4) {
+                        counter4.incrementAndGet();
+                    } else if (length == 5) {
+                        counter5.incrementAndGet();
+                    }
                 }
             }
         });
@@ -25,7 +32,14 @@ public class Main {
         Thread thread2 = new Thread(() -> {
             for (String text : texts) {
                 if (isSameLetter(text)) {
-                    counter4.incrementAndGet();
+                    int length = text.length();
+                    if (length == 3) {
+                        counter3.incrementAndGet();
+                    } else if (length == 4) {
+                        counter4.incrementAndGet();
+                    } else if (length == 5) {
+                        counter5.incrementAndGet();
+                    }
                 }
             }
         });
@@ -33,7 +47,14 @@ public class Main {
         Thread thread3 = new Thread(() -> {
             for (String text : texts) {
                 if (isAscendingLetters(text)) {
-                    counter5.incrementAndGet();
+                    int length = text.length();
+                    if (length == 3) {
+                        counter3.incrementAndGet();
+                    } else if (length == 4) {
+                        counter4.incrementAndGet();
+                    } else if (length == 5) {
+                        counter5.incrementAndGet();
+                    }
                 }
             }
         });
